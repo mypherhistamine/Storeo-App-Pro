@@ -28,11 +28,12 @@ class SexyCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
-                  "assets/images/night_sky.jpg",
-                  fit: BoxFit.cover,
-                )),
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(
+                "assets/images/night_sky.jpg",
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           Container(
             margin:
@@ -43,13 +44,17 @@ class SexyCard extends StatelessWidget {
                 width: 1,
               ),
               boxShadow: [
-                BoxShadow(blurRadius: 4),
+                BoxShadow(
+                    blurRadius: 4,
+                    offset: Offset(0, 6),
+                    color: APPCOLORS.shadowColor),
               ],
               borderRadius: BorderRadius.circular(50),
             ),
-            height: heightRatio * 30,
-            width: widthRatio * 30,
+            height: 30,
+            width: 30,
             child: ClipOval(
+              clipper: MyClipper(),
               child: Image.asset(
                 "assets/images/profile.jpeg",
                 fit: BoxFit.cover,
@@ -62,6 +67,13 @@ class SexyCard extends StatelessWidget {
               width: widthRatio * 150,
               height: heightRatio * 47,
               decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        offset: Offset(0, 3),
+                        color: APPCOLORS.shadowColor,
+                        blurRadius: 3,
+                        spreadRadius: 1)
+                  ],
                   borderRadius: BorderRadius.circular(15),
                   color: APPCOLORS.sexyPurple),
             ),
@@ -69,26 +81,48 @@ class SexyCard extends StatelessWidget {
           Align(
             alignment: Alignment.topRight,
             child: Container(
-              padding:
-                  EdgeInsets.only(left: 7 * widthRatio, top: heightRatio * 3),
+              padding: EdgeInsets.symmetric(
+                  horizontal: 7 * widthRatio, vertical: 5 * heightRatio),
               margin: EdgeInsets.only(
                   top: 21 * heightRatio, right: 12 * widthRatio),
-              width: widthRatio * 50,
-              height: heightRatio * 20,
               decoration: BoxDecoration(
-                  // border: Border.all(color: Colors.white),
+                  boxShadow: [
+                    BoxShadow(
+                      color: APPCOLORS.shadowColor,
+                      offset: Offset(0, 6 * heightRatio),
+                      blurRadius: 4,
+                    )
+                  ],
                   borderRadius: BorderRadius.circular(158 * heightRatio),
                   color: APPCOLORS.sexyPurple),
               child: Text(
-                'Thriller',
-                style: TextStyle(color: APPCOLORS.white, fontSize: 12),
+                'MYSTERY',
+                style: TextStyle(
+                    color: APPCOLORS.white,
+                    fontSize: 12,
+                    fontFamily: 'Lato',
+                    fontWeight: FontWeight.bold),
                 softWrap: true,
                 overflow: TextOverflow.fade,
               ),
             ),
-          )
+          ),
         ],
       ),
     );
+  }
+}
+
+class MyClipper extends CustomClipper<Rect> {
+  @override
+  Rect getClip(Size size) {
+    return Rect.fromCircle(
+        center: Offset(size.width / 2, size.height / 2),
+        radius: size.width / 2);
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Rect> oldClipper) {
+    return true;
   }
 }

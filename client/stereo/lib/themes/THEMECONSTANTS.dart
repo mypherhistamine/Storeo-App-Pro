@@ -6,4 +6,5 @@ class APPCOLORS {
   static Color bookMarkRed = Color(0xffD23F3F);
   static Color heartRed = Color(0xffD84242);
   static Color white = Colors.white;
+  static Color shadowColor = Color.fromRGBO(0, 0, 0, 0.25);
 }

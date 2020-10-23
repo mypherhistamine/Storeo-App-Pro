@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stereo/screens/market.dart';
 import 'package:stereo/themes/THEMECONSTANTS.dart';
 import 'package:stereo/widgets/sexyCard.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         ),
         body: Center(
           child: Container(
-            child: SexyCard(),
+            child: ExplorePage(),
           ),
         ),
       ),
