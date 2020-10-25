@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stereo/screens/market.dart';
 import 'package:stereo/themes/THEMECONSTANTS.dart';
+import 'package:stereo/widgets/betterCard.dart';
 import 'package:stereo/widgets/sexyCard.dart';
 
 void main() => runApp(MyApp());
@@ -16,9 +17,7 @@ class MyApp extends StatelessWidget {
           title: Text('Material App Bar'),
         ),
         body: Center(
-          child: Container(
-            child: ExplorePage(),
-          ),
+          child: BetterCard(),
         ),
       ),
     );
